@@ -1,0 +1,82 @@
+:root {
+    --bg-color: #1a1a1a; --panel-bg: #242424; --border-color: #444;
+    --text-primary: #f0f0f0; --text-secondary: #aaa;
+    --font-family: 'Roboto', sans-serif;
+    --accent-color: #00aaff;
+}
+html, body { margin: 0; padding: 0; width: 100%; height: 100%; background-color: var(--bg-color); color: var(--text-primary); font-family: var(--font-family); font-size: 14px; overflow: hidden; }
+
+.console-grid {
+    display: grid;
+    grid-template-columns: 2fr 1.5fr;
+    width: 100vw;
+    height: 100vh;
+    gap: 2px;
+    background-color: var(--border-color);
+}
+.main-content {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+.panel {
+    background-color: var(--panel-bg);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+.panel-header {
+    padding: 8px 12px;
+    border-bottom: 1px solid var(--border-color);
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+    background-color: #2a2a2a;
+}
+.panel-header h2 { margin: 0; font-size: 1em; font-weight: 600; }
+.panel-content { padding: 12px; overflow-y: auto; flex-grow: 1; }
+
+#live-panel, #map-panel {
+    flex-grow: 1;
+    height: calc((100vh - 2px) / 2);
+    flex-shrink: 0;
+}
+.video-container { padding: 0; height: 100%; }
+.video-container iframe { width: 100%; height: 100%; }
+.map-container { padding: 0; height: 100%; }
+.leaflet-container { background: #111; height: 100%; width: 100%; }
+
+.data-panel { display: flex; flex-direction: column; }
+.data-grid-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    flex-grow: 1;
+    gap: 0px;
+}
+
+.info-box {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-bottom: 1px solid var(--border-color);
+    border-right: 1px solid var(--border-color);
+    text-align: center;
+}
+.info-box:nth-child(2n) {
+    border-right: none;
+}
+.info-box:nth-last-child(-n + 2) {
+    border-bottom: none;
+}
+
+.info-header { font-size: 0.9em; color: var(--text-secondary); margin-bottom: 5px; }
+.info-box div[id^="iss-"] { font-size: 1.8em; font-weight: bold; color: var(--accent-color); font-family: 'Courier New', Courier, monospace; }
+.iss-emoji-icon {
+    font-size: 32px;
+    text-align: center;
+    line-height: 40px;
+    background: transparent;
+    border: none;
+}

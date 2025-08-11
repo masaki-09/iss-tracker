@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ISS シンプル・トラッキングコンソール</title>
+
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@400;700&display=swap" rel="stylesheet">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="console-grid">
+        <div class="main-content">
+            <div class="panel" id="live-panel">
+                <div class="panel-header"><h2><i class="fa-solid fa-video"></i> ISS Live from Space</h2></div>
+                <div class="panel-content video-container">
+                    <iframe src="https://www.youtube.com/embed/xRPjKQtRXR8?autoplay=1&mute=1&loop=1&playlist=xRPjKQtRXR8" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+            </div>
+            <div class="panel" id="map-panel">
+                <div class="panel-header"><h2><i class="fa-solid fa-map-marked-alt"></i> ISS Real-time Tracker</h2></div>
+                <div class="panel-content map-container" id="map-iss"></div>
+            </div>
+        </div>
+
+        <div class="panel data-panel">
+            <div class="data-grid-container">
+                <div class="info-box"><div class="info-header"><i class="fa-solid fa-location-arrow"></i> Latitude</div><div id="iss-latitude">---</div></div>
+                <div class="info-box"><div class="info-header"><i class="fa-solid fa-location-arrow"></i> Longitude</div><div id="iss-longitude">---</div></div>
+
+                <div class="info-box"><div class="info-header"><i class="fa-solid fa-ruler-vertical"></i> Altitude (km)</div><div id="iss-altitude">---</div></div>
+                <div class="info-box"><div class="info-header"><i class="fa-solid fa-tachometer-alt"></i> Velocity (km/h)</div><div id="iss-velocity">---</div></div>
+
+                <div class="info-box"><div class="info-header"><i class="fa-solid fa-users-line"></i> Current Crew</div><div id="iss-crew-count">7</div></div>
+                <div class="info-box"><div class="info-header"><i class="fa-solid fa-gauge-high"></i> Inclination</div><div id="iss-inclination">---</div></div>
+
+                <div class="info-box"><div class="info-header"><i class="fa-solid fa-sun"></i> Daylight</div><div id="iss-daylight">---</div></div>
+                <div class="info-box"><div class="info-header"><i class="fa-solid fa-eye"></i> Visibility</div><div id="iss-visibility">---</div></div>
+
+                <div class="info-box"><div class="info-header"><i class="fa-solid fa-clock"></i> Time (UTC)</div><div id="iss-utc-time">---</div></div>
+                <div class="info-box"><div class="info-header"><i class="fa-solid fa-clock"></i> Time (JST)</div><div id="iss-jst-time">---</div></div>
+
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
