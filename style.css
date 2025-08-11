@@ -1,6 +1,6 @@
 :root {
-    --bg-color: #1a1a1a; --panel-bg: #242424; --border-color: #444;
-    --text-primary: #f0f0f0; --text-secondary: #aaa;
+    --bg-color: #1a1a1a; --panel-bg: #242424; --border-color: #444; 
+    --text-primary: #f0f0f0; --text-secondary: #aaa; 
     --font-family: 'Roboto', sans-serif;
     --accent-color: #00aaff;
 }
@@ -8,13 +8,13 @@ html, body { margin: 0; padding: 0; width: 100%; height: 100%; background-color:
 
 .console-grid {
     display: grid;
-    grid-template-columns: 2fr 1.5fr;
+    grid-template-columns: 2fr 1.5fr; 
     width: 100vw;
     height: 100vh;
     gap: 2px;
     background-color: var(--border-color);
 }
-.main-content {
+.main-content { 
     display: flex;
     flex-direction: column;
     gap: 2px;
@@ -79,4 +79,34 @@ html, body { margin: 0; padding: 0; width: 100%; height: 100%; background-color:
     line-height: 40px;
     background: transparent;
     border: none;
+}
+
+/* ▼▼▼【ここに追加】スマホ向けのメディアクエリ ▼▼▼ */
+@media (max-width: 768px) {
+    .console-grid {
+        /* グリッドを1列に */
+        grid-template-columns: 1fr;
+    }
+    .main-content {
+        /* メインコンテンツを非表示に */
+        display: none;
+    }
+    .data-grid-container {
+        /* 情報パネルを1列にするか、そのまま2列にするか選べます */
+        /* 例1: 1列にする */
+        /* grid-template-columns: 1fr; */
+        /* 例2: 2列のまま */
+        grid-template-columns: 1fr 1fr;
+    }
+    .info-box:nth-last-child(-n + 2) {
+        /* 全てのボックスに下線を表示 */
+        border-bottom: 1px solid var(--border-color);
+    }
+    /* 最後の2つのボックスの右側の線を削除 */
+    .info-box:last-child {
+        border-right: none;
+    }
+    .info-box:nth-child(2n) {
+        border-right: none;
+    }
 }
